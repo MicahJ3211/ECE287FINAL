@@ -1,0 +1,20 @@
+Fitter Status : Successful - Wed Dec  3 20:53:39 2025
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : black_jack
+Top-level Entity Name : black_jack
+Family : Cyclone V
+Device : 5CSEMA5F31C6
+Timing Models : Final
+Logic utilization (in ALMs) : 507 / 32,070 ( 2 % )
+Total registers : 773
+Total pins : 82 / 457 ( 18 % )
+Total virtual pins : 0
+Total block memory bits : 2,374,328 / 4,065,280 ( 58 % )
+Total RAM Blocks : 291 / 397 ( 73 % )
+Total DSP Blocks : 1 / 87 ( 1 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )
