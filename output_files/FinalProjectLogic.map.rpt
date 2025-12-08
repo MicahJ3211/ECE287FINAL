@@ -1,0 +1,1546 @@
+Analysis & Synthesis report for FinalProjectLogic
+Sun Dec  7 14:10:23 2025
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |FinalProjectLogic|S
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Source assignments for deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated
+ 15. Source assignments for shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |FinalProjectLogic
+ 17. Parameter Settings for User Entity Instance: deck:memory|altsyncram:altsyncram_component
+ 18. Parameter Settings for User Entity Instance: shuffle_deck:my_deck
+ 19. Parameter Settings for User Entity Instance: shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 21. altsyncram Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "shuffle_deck:my_deck"
+ 23. Port Connectivity Checks: "deck:memory"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Dec  7 14:10:23 2025          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; FinalProjectLogic                              ;
+; Top-level Entity Name           ; FinalProjectLogic                              ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 16                                             ;
+; Total pins                      ; 67                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 12                                             ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; FinalProjectLogic  ; FinalProjectLogic  ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 28          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                  ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                    ; Library ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
+; Black_Jack_Main_FSM.v            ; yes             ; User Verilog HDL File                  ; M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v                        ;         ;
+; deck.v                           ; yes             ; User Wizard-Generated File             ; M:/ECE287/LABS/Final_Project_Logic/deck.v                                       ;         ;
+; seven_segment_suit.v             ; yes             ; User Verilog HDL File                  ; M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v                         ;         ;
+; seven_segment.v                  ; yes             ; Auto-Found Verilog HDL File            ; M:/ECE287/LABS/Final_Project_Logic/seven_segment.v                              ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_67p1.tdf           ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf                       ;         ;
+; black_jack_deck.mif              ; yes             ; Auto-Found Memory Initialization File  ; M:/ECE287/LABS/Final_Project_Logic/black_jack_deck.mif                          ;         ;
+; shuffle_deck.v                   ; yes             ; Auto-Found Verilog HDL File            ; M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v                               ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_42m.tdf            ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_42m.tdf                        ;         ;
+; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_7kh.tdf                   ;         ;
+; db/alt_u_div_kse.tdf             ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_kse.tdf                         ;         ;
++----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 35             ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 68             ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 1              ;
+;     -- 5 input functions                    ; 1              ;
+;     -- 4 input functions                    ; 11             ;
+;     -- <=3 input functions                  ; 55             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 16             ;
+;                                             ;                ;
+; I/O pins                                    ; 67             ;
+; Total MLAB memory bits                      ; 0              ;
+; Total block memory bits                     ; 12             ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 22             ;
+; Total fan-out                               ; 338            ;
+; Average fan-out                             ; 1.51           ;
++---------------------------------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                          ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |FinalProjectLogic                        ; 68 (47)             ; 16 (16)                   ; 12                ; 0          ; 67   ; 0            ; |FinalProjectLogic                                                                                                 ; FinalProjectLogic   ; work         ;
+;    |deck:memory|                          ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory                                                                                     ; deck                ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory|altsyncram:altsyncram_component                                                     ; altsyncram          ; work         ;
+;          |altsyncram_67p1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated                      ; altsyncram_67p1     ; work         ;
+;    |lpm_divide:Mod0|                      ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_42m:auto_generated|     ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated                                                   ; lpm_divide_42m      ; work         ;
+;          |sign_div_unsign_7kh:divider|    ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider                       ; sign_div_unsign_7kh ; work         ;
+;             |alt_u_div_kse:divider|       ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_kse:divider ; alt_u_div_kse       ; work         ;
+;    |seven_segment:dig0|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig0                                                                              ; seven_segment       ; work         ;
+;    |seven_segment:dig1|                   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig1                                                                              ; seven_segment       ; work         ;
+;    |seven_segment_suit:dig2|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment_suit:dig2                                                                         ; seven_segment_suit  ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                    ;
++---------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+---------------------+
+; Name                                                                                  ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                 ;
++---------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+---------------------+
+; deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port ; 52           ; 6            ; --           ; --           ; 312  ; black_jack_deck.mif ;
++---------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+---------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                 ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                     ; IP Include File ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------+-----------------+
+; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |FinalProjectLogic|deck:memory                      ; deck.v          ;
+; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |FinalProjectLogic|shuffle_deck:my_deck|deck:memory ; deck.v          ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FinalProjectLogic|S                                                                                                                                                                                                                                                                 ;
++----------------------+---------------------+--------------+-------------+----------------+---------------+----------------------+----------+-----------+-------------+-------------+-------------------+--------------+------------------+-------------------+--------------+--------------+---------+
+; Name                 ; S.WAIT_ACE_CHOICE_1 ; S.DEALER_GET ; S.WAIT_CONT ; S.DISPLAY_CARD ; S.WAIT_PSTAND ; S.WAIT_ACE_CHOICE_11 ; S.IS_ACE ; S.IS_BUST ; S.WAIT_PHIT ; S.DEAL_STEP ; S.WAIT_START_GAME ; S.START_GAME ; S.SHOW_NEXT_CARD ; S.WAIT_SHUFF_DONE ; S.SEED_ENTER ; S.WAIT_START ; S.START ;
++----------------------+---------------------+--------------+-------------+----------------+---------------+----------------------+----------+-----------+-------------+-------------+-------------------+--------------+------------------+-------------------+--------------+--------------+---------+
+; S.START              ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 0       ;
+; S.WAIT_START         ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 1            ; 1       ;
+; S.SEED_ENTER         ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 1            ; 0            ; 1       ;
+; S.WAIT_SHUFF_DONE    ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 1                 ; 0            ; 0            ; 1       ;
+; S.SHOW_NEXT_CARD     ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 1                ; 0                 ; 0            ; 0            ; 1       ;
+; S.START_GAME         ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 1            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.WAIT_START_GAME    ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 1                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.DEAL_STEP          ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 1           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.WAIT_PHIT          ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 1           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.IS_BUST            ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 1         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.IS_ACE             ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 1        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.WAIT_ACE_CHOICE_11 ; 0                   ; 0            ; 0           ; 0              ; 0             ; 1                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.WAIT_PSTAND        ; 0                   ; 0            ; 0           ; 0              ; 1             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.DISPLAY_CARD       ; 0                   ; 0            ; 0           ; 1              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.WAIT_CONT          ; 0                   ; 0            ; 1           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.DEALER_GET         ; 0                   ; 1            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
+; S.WAIT_ACE_CHOICE_1  ; 1                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
++----------------------+---------------------+--------------+-------------+----------------+---------------+----------------------+----------+-----------+-------------+-------------+-------------------+--------------+------------------+-------------------+--------------+--------------+---------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; card_num[0]                                         ; WideOr17            ; yes                    ;
+; card_num[1]                                         ; WideOr17            ; yes                    ;
+; card_num[2]                                         ; WideOr17            ; yes                    ;
+; card_num[3]                                         ; WideOr17            ; yes                    ;
+; card_suit[1]                                        ; WideOr17            ; yes                    ;
+; card_suit[0]                                        ; WideOr17            ; yes                    ;
+; NS.WAIT_START_GAME_598                              ; WideNor0            ; yes                    ;
+; NS.START_638                                        ; WideNor0            ; yes                    ;
+; NS.WAIT_SHUFF_DONE_614                              ; WideNor0            ; yes                    ;
+; NS.START_GAME_606                                   ; WideNor0            ; yes                    ;
+; NS.WAIT_CONT_534                                    ; WideNor0            ; yes                    ;
+; NS.DEALER_GET_526                                   ; WideNor0            ; yes                    ;
+; NS.SEED_ENTER_622                                   ; WideNor0            ; yes                    ;
+; NS.IS_BUST_574                                      ; WideNor0            ; yes                    ;
+; NS.WAIT_PSTAND_550                                  ; WideNor0            ; yes                    ;
+; NS.WAIT_START_630                                   ; WideNor0            ; yes                    ;
+; NS.WAIT_ACE_CHOICE_1_518                            ; WideNor0            ; yes                    ;
+; NS.WAIT_ACE_CHOICE_11_558                           ; WideNor0            ; yes                    ;
+; NS.DISPLAY_CARD_542                                 ; WideNor0            ; yes                    ;
+; NS.DEAL_STEP_590                                    ; WideNor0            ; yes                    ;
+; NS.IS_ACE_566                                       ; WideNor0            ; yes                    ;
+; NS.WAIT_PHIT_582                                    ; WideNor0            ; yes                    ;
+; Number of user-specified and inferred latches = 22  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; S.SHOW_NEXT_CARD                      ; Lost fanout        ;
+; S~4                                   ; Lost fanout        ;
+; S~5                                   ; Lost fanout        ;
+; S~6                                   ; Lost fanout        ;
+; S~7                                   ; Lost fanout        ;
+; S~8                                   ; Lost fanout        ;
+; Total Number of Removed Registers = 6 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 16    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Source assignments for deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------+
+; Assignment                      ; Value              ; From ; To                                  ;
++---------------------------------+--------------------+------+-------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                   ;
++---------------------------------+--------------------+------+-------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                       ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                        ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |FinalProjectLogic ;
++--------------------+-------+------------------------------------------------------+
+; Parameter Name     ; Value ; Type                                                 ;
++--------------------+-------+------------------------------------------------------+
+; START              ; 00000 ; Unsigned Binary                                      ;
+; WAIT_START         ; 00001 ; Unsigned Binary                                      ;
+; SEED_ENTER         ; 00010 ; Unsigned Binary                                      ;
+; WAIT_SHUFF_DONE    ; 00011 ; Unsigned Binary                                      ;
+; START_GAME         ; 01000 ; Unsigned Binary                                      ;
+; WAIT_START_GAME    ; 01001 ; Unsigned Binary                                      ;
+; SHOW_NEXT_CARD     ; 00100 ; Unsigned Binary                                      ;
+; DEAL_STEP          ; 01010 ; Unsigned Binary                                      ;
+; WAIT_PHIT          ; 01011 ; Unsigned Binary                                      ;
+; DISPLAY_CARD       ; 10000 ; Unsigned Binary                                      ;
+; IS_BUST            ; 01100 ; Unsigned Binary                                      ;
+; IS_ACE             ; 01101 ; Unsigned Binary                                      ;
+; WAIT_ACE_CHOICE_11 ; 01110 ; Unsigned Binary                                      ;
+; WAIT_ACE_CHOICE_1  ; 11010 ; Unsigned Binary                                      ;
+; WAIT_CONT          ; 10001 ; Unsigned Binary                                      ;
+; WAIT_PSTAND        ; 01111 ; Unsigned Binary                                      ;
+; DEALER_GET         ; 10010 ; Unsigned Binary                                      ;
+; WAIT_DHIT          ; 10011 ; Unsigned Binary                                      ;
+; D_IS_BUST          ; 10100 ; Unsigned Binary                                      ;
+; D_IS_ACE           ; 10101 ; Unsigned Binary                                      ;
+; WAIT_D_ACE_CHOICE  ; 10110 ; Unsigned Binary                                      ;
+; WAIT_DSTAND        ; 10111 ; Unsigned Binary                                      ;
+; IS_WIN             ; 11000 ; Unsigned Binary                                      ;
+; IS_FINAL           ; 11001 ; Unsigned Binary                                      ;
++--------------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: deck:memory|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+------------------------------+
+; Parameter Name                     ; Value                ; Type                         ;
++------------------------------------+----------------------+------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                      ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                   ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                 ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                 ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE               ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                      ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                      ;
+; WIDTH_A                            ; 6                    ; Signed Integer               ;
+; WIDTHAD_A                          ; 6                    ; Signed Integer               ;
+; NUMWORDS_A                         ; 52                   ; Signed Integer               ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                      ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                      ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                      ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                      ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                      ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                      ;
+; WIDTH_B                            ; 1                    ; Untyped                      ;
+; WIDTHAD_B                          ; 1                    ; Untyped                      ;
+; NUMWORDS_B                         ; 1                    ; Untyped                      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                      ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                      ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                      ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                      ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                      ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                      ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                      ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                      ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                      ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                      ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                      ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                      ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer               ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                      ;
+; BYTE_SIZE                          ; 8                    ; Untyped                      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                      ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                      ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                      ;
+; INIT_FILE                          ; black_jack_deck.mif  ; Untyped                      ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                      ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                      ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                      ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                      ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                      ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                      ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                      ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                      ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                      ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                      ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                      ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                      ;
+; CBXI_PARAMETER                     ; altsyncram_67p1      ; Untyped                      ;
++------------------------------------+----------------------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: shuffle_deck:my_deck ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; START          ; 0000  ; Unsigned Binary                          ;
+; SEED_ENTER     ; 0001  ; Unsigned Binary                          ;
+; WAIT_EN        ; 0010  ; Unsigned Binary                          ;
+; RANDOMIZE      ; 0011  ; Unsigned Binary                          ;
+; FETCH_BUFF     ; 0100  ; Unsigned Binary                          ;
+; FETCH_CARD     ; 0101  ; Unsigned Binary                          ;
+; GET_INDEX      ; 0110  ; Unsigned Binary                          ;
+; DATA_BUFF      ; 0111  ; Unsigned Binary                          ;
+; REPLACE_CARDS  ; 1000  ; Unsigned Binary                          ;
+; RESET_VALUES   ; 1001  ; Unsigned Binary                          ;
+; DONE           ; 1010  ; Unsigned Binary                          ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                           ;
+; WIDTH_A                            ; 6                    ; Signed Integer                                    ;
+; WIDTHAD_A                          ; 6                    ; Signed Integer                                    ;
+; NUMWORDS_A                         ; 52                   ; Signed Integer                                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 1                    ; Untyped                                           ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                           ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; black_jack_deck.mif  ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_67p1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_42m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                             ;
++-------------------------------------------+------------------------------------------------------------------+
+; Name                                      ; Value                                                            ;
++-------------------------------------------+------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                ;
+; Entity Instance                           ; deck:memory|altsyncram:altsyncram_component                      ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                      ;
+;     -- WIDTH_A                            ; 6                                                                ;
+;     -- NUMWORDS_A                         ; 52                                                               ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                     ;
+;     -- WIDTH_B                            ; 1                                                                ;
+;     -- NUMWORDS_B                         ; 1                                                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                           ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                     ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                             ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                        ;
+; Entity Instance                           ; shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                      ;
+;     -- WIDTH_A                            ; 6                                                                ;
+;     -- NUMWORDS_A                         ; 52                                                               ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                     ;
+;     -- WIDTH_B                            ; 1                                                                ;
+;     -- NUMWORDS_B                         ; 1                                                                ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                           ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                     ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                             ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                        ;
++-------------------------------------------+------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "shuffle_deck:my_deck"                                                                                                                                                            ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                           ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; en   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; seed ; Input ; Warning  ; Input port expression (10 bits) is wider than the input port (6 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------+
+; Port Connectivity Checks: "deck:memory" ;
++------+-------+----------+---------------+
+; Port ; Type  ; Severity ; Details       ;
++------+-------+----------+---------------+
+; data ; Input ; Info     ; Stuck at GND  ;
++------+-------+----------+---------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 16                          ;
+;     CLR               ; 16                          ;
+; arriav_lcell_comb     ; 72                          ;
+;     normal            ; 67                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 34                          ;
+;         4 data inputs ; 11                          ;
+;         5 data inputs ; 1                           ;
+;         6 data inputs ; 1                           ;
+;     shared            ; 5                           ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 4                           ;
+; boundary_port         ; 67                          ;
+; stratixv_ram_block    ; 6                           ;
+;                       ;                             ;
+; Max LUT depth         ; 4.40                        ;
+; Average LUT depth     ; 2.25                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Sun Dec  7 14:10:15 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProjectLogic -c FinalProjectLogic
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 20 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file black_jack_main_fsm.v
+    Info (12023): Found entity 1: FinalProjectLogic File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file deck.v
+    Info (12023): Found entity 1: deck File: M:/ECE287/LABS/Final_Project_Logic/deck.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_suit.v
+    Info (12023): Found entity 1: seven_segment_suit File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 1
+Warning (10463): Verilog HDL Declaration warning at lfsr.v(5): "rand" is SystemVerilog-2005 keyword File: M:/ECE287/LABS/Final_Project_Logic/lfsr.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file lfsr.v
+    Info (12023): Found entity 1: lfsr File: M:/ECE287/LABS/Final_Project_Logic/lfsr.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at Black_Jack_Main_FSM.v(165): created implicit net for "wren" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 165
+Info (12127): Elaborating entity "FinalProjectLogic" for the top level hierarchy
+Warning (10858): Verilog HDL warning at Black_Jack_Main_FSM.v(105): object seg7_dig3 used but never assigned File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 105
+Warning (10858): Verilog HDL warning at Black_Jack_Main_FSM.v(106): object seg7_dig4 used but never assigned File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 106
+Warning (10858): Verilog HDL warning at Black_Jack_Main_FSM.v(107): object seg7_dig5 used but never assigned File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 107
+Warning (10036): Verilog HDL or VHDL warning at Black_Jack_Main_FSM.v(127): object "dealerT" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 127
+Warning (10036): Verilog HDL or VHDL warning at Black_Jack_Main_FSM.v(142): object "display_control" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 142
+Warning (10270): Verilog HDL Case Statement warning at Black_Jack_Main_FSM.v(209): incomplete case statement has no default case item File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10264): Verilog HDL Case Statement information at Black_Jack_Main_FSM.v(209): all case item expressions in this case statement are onehot File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(209): inferring latch(es) for variable "NS", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(347): truncated value with size 6 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 347
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(348): truncated value with size 6 to match size of target (2) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 348
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(351): truncated value with size 32 to match size of target (6) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 351
+Warning (10270): Verilog HDL Case Statement warning at Black_Jack_Main_FSM.v(319): incomplete case statement has no default case item File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 319
+Info (10264): Verilog HDL Case Statement information at Black_Jack_Main_FSM.v(319): all case item expressions in this case statement are onehot File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 319
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "startShuff", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "playerP", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "dealerP", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "playerT", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "deck_index", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "deck_write_data", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "card_num", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "card_suit", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(378): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(379): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 379
+Warning (10030): Net "seg7_dig3" at Black_Jack_Main_FSM.v(105) has no driver or initial value, using a default initial value '0' File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 105
+Warning (10030): Net "seg7_dig4" at Black_Jack_Main_FSM.v(106) has no driver or initial value, using a default initial value '0' File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 106
+Warning (10030): Net "seg7_dig5" at Black_Jack_Main_FSM.v(107) has no driver or initial value, using a default initial value '0' File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 107
+Info (10041): Inferred latch for "card_suit[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "card_suit[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "card_num[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "card_num[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "card_num[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "card_num[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_write_data[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_write_data[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_write_data[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_write_data[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_write_data[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_write_data[5]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_index[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_index[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_index[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_index[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_index[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "deck_index[5]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerT[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerT[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerT[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerT[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerT[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "dealerP[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "dealerP[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "dealerP[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "dealerP[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "dealerP[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerP[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerP[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerP[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerP[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "playerP[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "startShuff" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+Info (10041): Inferred latch for "NS.WAIT_ACE_CHOICE_1" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.DEALER_GET" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.WAIT_CONT" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.DISPLAY_CARD" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.WAIT_PSTAND" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.WAIT_ACE_CHOICE_11" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.IS_ACE" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.IS_BUST" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.WAIT_PHIT" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.DEAL_STEP" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.WAIT_START_GAME" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.START_GAME" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.WAIT_SHUFF_DONE" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.SEED_ENTER" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.WAIT_START" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Info (10041): Inferred latch for "NS.START" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Warning (12125): Using design file seven_segment.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: seven_segment File: M:/ECE287/LABS/Final_Project_Logic/seven_segment.v Line: 1
+Info (12128): Elaborating entity "seven_segment" for hierarchy "seven_segment:dig0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 161
+Info (12128): Elaborating entity "seven_segment_suit" for hierarchy "seven_segment_suit:dig2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 163
+Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(20): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 20
+Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(22): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 22
+Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(24): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 24
+Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(26): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 26
+Info (12128): Elaborating entity "deck" for hierarchy "deck:memory" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 165
+Info (12128): Elaborating entity "altsyncram" for hierarchy "deck:memory|altsyncram:altsyncram_component" File: M:/ECE287/LABS/Final_Project_Logic/deck.v Line: 86
+Info (12130): Elaborated megafunction instantiation "deck:memory|altsyncram:altsyncram_component" File: M:/ECE287/LABS/Final_Project_Logic/deck.v Line: 86
+Info (12133): Instantiated megafunction "deck:memory|altsyncram:altsyncram_component" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/deck.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "black_jack_deck.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "52"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "width_a" = "6"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_67p1.tdf
+    Info (12023): Found entity 1: altsyncram_67p1 File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_67p1" for hierarchy "deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (12125): Using design file shuffle_deck.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shuffle_deck File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 1
+Info (12128): Elaborating entity "shuffle_deck" for hierarchy "shuffle_deck:my_deck" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 166
+Warning (10230): Verilog HDL assignment warning at shuffle_deck.v(290): truncated value with size 32 to match size of target (2) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 290
+Warning (10230): Verilog HDL assignment warning at shuffle_deck.v(295): truncated value with size 32 to match size of target (2) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 295
+Warning (10230): Verilog HDL assignment warning at shuffle_deck.v(309): truncated value with size 32 to match size of target (6) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 309
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "previous_card", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "current_card", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "previous_slot", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "current_slot", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "shuffle_cnt", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "done", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "rnd_cnt", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "data_cnt", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "deck_index", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "deck_write_data", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_write_data[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_write_data[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_write_data[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_write_data[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_write_data[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_write_data[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_index[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_index[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_index[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_index[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_index[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "deck_index[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "data_cnt[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "data_cnt[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "rnd_cnt[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "rnd_cnt[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "done" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "shuffle_cnt[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "shuffle_cnt[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "shuffle_cnt[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "shuffle_cnt[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "shuffle_cnt[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "shuffle_cnt[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_slot[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_slot[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_slot[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_slot[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_slot[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_slot[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_slot[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_slot[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_slot[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_slot[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_slot[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_slot[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_card[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_card[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_card[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_card[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_card[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "current_card[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_card[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_card[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_card[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_card[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_card[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Info (10041): Inferred latch for "previous_card[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[0]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 37
+        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[1]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 61
+        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[2]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 85
+        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[3]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 109
+        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[4]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 133
+        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[5]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 157
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_42m.tdf
+    Info (12023): Found entity 1: lpm_divide_42m File: M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_42m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_7kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_7kh File: M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_7kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kse.tdf
+    Info (12023): Found entity 1: alt_u_div_kse File: M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_kse.tdf Line: 23
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch card_num[0] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
+Warning (13012): Latch card_num[1] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
+Warning (13012): Latch card_num[2] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
+Warning (13012): Latch card_num[3] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
+Warning (13012): Latch card_suit[1] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
+Warning (13012): Latch card_suit[0] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
+Warning (13012): Latch NS.START_638 has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_CONT File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 206
+Warning (13012): Latch NS.SEED_ENTER_622 has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_CONT File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 206
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 41
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 41
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 41
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 42
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
+    Warning (13410): Pin "LEDR[0]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[1]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[2]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[3]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[4]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[5]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[6]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[7]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[8]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[9]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (17036): Removed 5 MSB VCC or GND address nodes from RAM block "deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|ALTSYNCRAM" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 33
+Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_BA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CKE -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_CS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DM[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_N[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQS_P[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ODT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_RESET_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_WE_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_DIN -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_DOUT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SCLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_ADCDAT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_ADCLRCK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_BCLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_DACDAT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_DACLRCK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_XCK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50 -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK3_50 -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK4_50 -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK_50 -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_ADDR[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_BA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CKE -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_CS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_LDQM -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_RAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_UDQM -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DRAM_WE_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FAN_CTRL -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_I2C_SCLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_I2C_SDAT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[32] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[33] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[34] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[35] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_0[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[32] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[33] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[34] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[35] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to GPIO_1[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX0[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX1[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX2[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX3[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX4[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX5[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_CONV_USB_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ADDR[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_BA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CKE -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_CS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DM[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_N[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "DIFFERENTIAL 1.5-V SSTL CLASS I" -to HPS_DDR3_DQS_P[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_ODT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RESET_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_RZQ -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "SSTL-15 CLASS I" -to HPS_DDR3_WE_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_GTX_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_INT_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_MDC -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_MDIO -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DATA[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_RX_DV -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_DATA[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_ENET_TX_EN -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_FLASH_DATA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_FLASH_DATA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_FLASH_DATA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_FLASH_DATA[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_FLASH_DCLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_FLASH_NCSO -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_GPIO[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_GPIO[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_GSENSOR_INT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C1_SCLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C1_SDAT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C2_SCLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C2_SDAT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_I2C_CONTROL -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_KEY -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_LED -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_LTC_GPIO -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_CMD -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SD_DATA[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_MISO -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_MOSI -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_SPIM_SS -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_UART_RX -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_UART_TX -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_CLKOUT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DATA[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_DIR -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_NXT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HPS_USB_STP -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to IRDA_RXD -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to IRDA_TXD -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LEDR[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_CLK2 -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_DAT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_DAT2 -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_CLK27 -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_DATA[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_HS -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_RESET_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TD_VS -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_B2_DATA[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_EMPTY -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_FULL -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_OE_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_RD_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_RESET_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_SCL -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_SDA -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USB_WR_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_BLANK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_CLK -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_HS -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ADDR[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_BA[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CKE -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_CS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_ODT -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RAS_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_RESET_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to HPS_DDR3_WE_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name INPUT_TERMINATION "PARALLEL 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITHOUT CALIBRATION" -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DM[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_N[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQS_P[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[0] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[10] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[11] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[12] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[13] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[14] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[15] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[16] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[17] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[18] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[19] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[1] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[20] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[21] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[22] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[23] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[24] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[25] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[26] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[27] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[28] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[29] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[2] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[30] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[31] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[3] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[4] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[5] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[6] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[7] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[8] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name OUTPUT_TERMINATION "SERIES 50 OHM WITH CALIBRATION" -to HPS_DDR3_DQ[9] -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_N -entity DE1_SoC was ignored
+    Warning (20014): Assignment for entity set_instance_assignment -name D5_DELAY 2 -to HPS_DDR3_CK_P -entity DE1_SoC was ignored
+Info (144001): Generated suppressed messages file M:/ECE287/LABS/Final_Project_Logic/output_files/FinalProjectLogic.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 11 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 52
+    Warning (15610): No output dependent on input pin "SW[0]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[1]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[2]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[3]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[4]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[5]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[6]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[7]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[8]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+    Warning (15610): No output dependent on input pin "SW[9]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 83 logic cells
+    Info (21064): Implemented 6 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 691 warnings
+    Info: Peak virtual memory: 4877 megabytes
+    Info: Processing ended: Sun Dec  7 14:10:23 2025
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in M:/ECE287/LABS/Final_Project_Logic/output_files/FinalProjectLogic.map.smsg.
+
+

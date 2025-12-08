@@ -1,0 +1,7 @@
+module lfsr(input clk, 
+				input rst, 
+				input [6:0] srand, 
+				input init_srand, 
+				output reg [6:0] rand);
+	always@(posedge clk or negedge rst)
+		
