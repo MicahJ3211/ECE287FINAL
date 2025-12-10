@@ -2,148 +2,100 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'S.START'
-Slack : -5.887
-TNS   : -33.613
-
-Type  : Slow 1100mV 85C Model Setup 'S.DEALER_GET'
-Slack : -4.017
-TNS   : -56.034
+Type  : Slow 1100mV 85C Model Setup 'S[0]'
+Slack : -5.624
+TNS   : -98.298
 
 Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -2.854
-TNS   : -13.190
+Slack : -4.166
+TNS   : -230.792
 
 Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
-Slack : -2.744
-TNS   : -29.162
+Slack : -2.971
+TNS   : -5.684
 
-Type  : Slow 1100mV 85C Model Hold 'S.DEALER_GET'
-Slack : 0.132
-TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Hold 'S.START'
-Slack : 2.668
+Type  : Slow 1100mV 85C Model Hold 'S[0]'
+Slack : 0.451
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -2.174
-TNS   : -36.175
+Slack : -2.225
+TNS   : -105.293
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'S.DEALER_GET'
-Slack : 0.326
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'S[0]'
+Slack : 0.202
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'S.START'
-Slack : 0.365
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Setup 'S.START'
-Slack : -6.029
-TNS   : -34.349
-
-Type  : Slow 1100mV 0C Model Setup 'S.DEALER_GET'
-Slack : -4.090
-TNS   : -56.406
+Type  : Slow 1100mV 0C Model Setup 'S[0]'
+Slack : -5.666
+TNS   : -99.411
 
 Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -2.558
-TNS   : -11.989
+Slack : -4.300
+TNS   : -224.548
 
 Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
-Slack : -2.772
-TNS   : -29.529
+Slack : -3.048
+TNS   : -5.857
 
-Type  : Slow 1100mV 0C Model Hold 'S.DEALER_GET'
-Slack : 0.152
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Hold 'S.START'
-Slack : 2.689
+Type  : Slow 1100mV 0C Model Hold 'S[0]'
+Slack : 0.462
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
-Slack : -2.174
-TNS   : -36.765
+Slack : -2.225
+TNS   : -109.401
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'S.DEALER_GET'
-Slack : 0.306
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'S[0]'
+Slack : 0.204
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'S.START'
-Slack : 0.375
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Setup 'S.START'
-Slack : -2.918
-TNS   : -16.826
+Type  : Fast 1100mV 85C Model Setup 'S[0]'
+Slack : -2.983
+TNS   : -49.761
 
 Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
-Slack : -1.951
-TNS   : -8.982
-
-Type  : Fast 1100mV 85C Model Setup 'S.DEALER_GET'
-Slack : -1.801
-TNS   : -24.236
+Slack : -2.900
+TNS   : -115.226
 
 Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
-Slack : -1.602
-TNS   : -16.923
+Slack : -1.661
+TNS   : -3.186
 
-Type  : Fast 1100mV 85C Model Hold 'S.DEALER_GET'
-Slack : 0.047
-TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Hold 'S.START'
-Slack : 1.449
+Type  : Fast 1100mV 85C Model Hold 'S[0]'
+Slack : 0.147
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -2.174
-TNS   : -29.176
+TNS   : -62.543
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'S.START'
-Slack : 0.363
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'S[0]'
+Slack : 0.263
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'S.DEALER_GET'
-Slack : 0.398
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Setup 'S.START'
-Slack : -2.836
-TNS   : -16.285
-
-Type  : Fast 1100mV 0C Model Setup 'S.DEALER_GET'
-Slack : -1.694
-TNS   : -22.830
+Type  : Fast 1100mV 0C Model Setup 'S[0]'
+Slack : -2.828
+TNS   : -47.277
 
 Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
-Slack : -1.432
-TNS   : -6.623
+Slack : -2.255
+TNS   : -94.631
 
 Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
-Slack : -1.586
-TNS   : -16.840
+Slack : -1.661
+TNS   : -3.204
 
-Type  : Fast 1100mV 0C Model Hold 'S.DEALER_GET'
-Slack : 0.054
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Hold 'S.START'
-Slack : 1.420
+Type  : Fast 1100mV 0C Model Hold 'S[0]'
+Slack : 0.188
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -2.174
-TNS   : -29.162
+TNS   : -62.499
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'S.START'
-Slack : 0.387
-TNS   : 0.000
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'S.DEALER_GET'
-Slack : 0.401
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'S[0]'
+Slack : 0.308
 TNS   : 0.000
 
 ------------------------------------------------------------

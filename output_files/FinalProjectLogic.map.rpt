@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FinalProjectLogic
-Sun Dec  7 14:10:23 2025
+Tue Dec  9 23:30:38 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -14,25 +14,29 @@ Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Analysis & Synthesis IP Cores Summary
- 10. State Machine - |FinalProjectLogic|S
- 11. User-Specified and Inferred Latches
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Source assignments for deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated
- 15. Source assignments for shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |FinalProjectLogic
- 17. Parameter Settings for User Entity Instance: deck:memory|altsyncram:altsyncram_component
- 18. Parameter Settings for User Entity Instance: shuffle_deck:my_deck
- 19. Parameter Settings for User Entity Instance: shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. State Machine - |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|S
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated
+ 17. Parameter Settings for User Entity Instance: Top-level Entity: |FinalProjectLogic
+ 18. Parameter Settings for User Entity Instance: deck:memory|altsyncram:altsyncram_component
+ 19. Parameter Settings for User Entity Instance: shuffle_deck_v2:my_deck_v2
  20. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
- 21. altsyncram Parameter Settings by Entity Instance
- 22. Port Connectivity Checks: "shuffle_deck:my_deck"
- 23. Port Connectivity Checks: "deck:memory"
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
- 27. Analysis & Synthesis Suppressed Messages
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 23. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 24. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 25. Parameter Settings for Inferred Entity Instance: shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "shuffle_deck_v2:my_deck_v2"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -59,17 +63,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Dec  7 14:10:23 2025          ;
+; Analysis & Synthesis Status     ; Successful - Tue Dec  9 23:30:38 2025          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; FinalProjectLogic                              ;
 ; Top-level Entity Name           ; FinalProjectLogic                              ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 16                                             ;
+; Total registers                 ; 80                                             ;
 ; Total pins                      ; 67                                             ;
 ; Total virtual pins              ; 0                                              ;
-; Total block memory bits         ; 12                                             ;
-; Total DSP Blocks                ; 0                                              ;
+; Total block memory bits         ; 312                                            ;
+; Total DSP Blocks                ; 1                                              ;
 ; Total HSSI RX PCSs              ; 0                                              ;
 ; Total HSSI PMA RX Deserializers ; 0                                              ;
 ; Total HSSI TX PCSs              ; 0                                              ;
@@ -87,7 +91,7 @@ https://fpgasoftware.intel.com/eula.
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
 ; Top-level entity name                                                           ; FinalProjectLogic  ; FinalProjectLogic  ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
-; Use smart compilation                                                           ; Off                ; Off                ;
+; Use smart compilation                                                           ; On                 ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
 ; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
@@ -191,6 +195,7 @@ https://fpgasoftware.intel.com/eula.
 ; Black_Jack_Main_FSM.v            ; yes             ; User Verilog HDL File                  ; M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v                        ;         ;
 ; deck.v                           ; yes             ; User Wizard-Generated File             ; M:/ECE287/LABS/Final_Project_Logic/deck.v                                       ;         ;
 ; seven_segment_suit.v             ; yes             ; User Verilog HDL File                  ; M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v                         ;         ;
+; shuffle_deck_v2.v                ; yes             ; User Verilog HDL File                  ; M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v                            ;         ;
 ; seven_segment.v                  ; yes             ; Auto-Found Verilog HDL File            ; M:/ECE287/LABS/Final_Project_Logic/seven_segment.v                              ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
@@ -203,13 +208,19 @@ https://fpgasoftware.intel.com/eula.
 ; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altdpram.inc          ;         ;
 ; db/altsyncram_67p1.tdf           ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf                       ;         ;
 ; black_jack_deck.mif              ; yes             ; Auto-Found Memory Initialization File  ; M:/ECE287/LABS/Final_Project_Logic/black_jack_deck.mif                          ;         ;
-; shuffle_deck.v                   ; yes             ; Auto-Found Verilog HDL File            ; M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v                               ;         ;
 ; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
 ; abs_divider.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
 ; sign_div_unsign.inc              ; yes             ; Megafunction                           ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
 ; db/lpm_divide_42m.tdf            ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_42m.tdf                        ;         ;
 ; db/sign_div_unsign_7kh.tdf       ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_7kh.tdf                   ;         ;
 ; db/alt_u_div_kse.tdf             ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_kse.tdf                         ;         ;
+; db/lpm_divide_52m.tdf            ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_52m.tdf                        ;         ;
+; db/sign_div_unsign_8kh.tdf       ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_8kh.tdf                   ;         ;
+; db/alt_u_div_mse.tdf             ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_mse.tdf                         ;         ;
+; db/lpm_divide_2am.tdf            ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_2am.tdf                        ;         ;
+; db/lpm_divide_82m.tdf            ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_82m.tdf                        ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_bkh.tdf                   ;         ;
+; db/alt_u_div_sse.tdf             ; yes             ; Auto-Generated Megafunction            ; M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_sse.tdf                         ;         ;
 +----------------------------------+-----------------+----------------------------------------+---------------------------------------------------------------------------------+---------+
 
 
@@ -218,47 +229,70 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 35             ;
+; Estimate of Logic utilization (ALMs needed) ; 142            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 68             ;
-;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 1              ;
-;     -- 5 input functions                    ; 1              ;
-;     -- 4 input functions                    ; 11             ;
-;     -- <=3 input functions                  ; 55             ;
+; Combinational ALUT usage for logic          ; 264            ;
+;     -- 7 input functions                    ; 3              ;
+;     -- 6 input functions                    ; 15             ;
+;     -- 5 input functions                    ; 30             ;
+;     -- 4 input functions                    ; 67             ;
+;     -- <=3 input functions                  ; 149            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 16             ;
+; Dedicated logic registers                   ; 80             ;
 ;                                             ;                ;
 ; I/O pins                                    ; 67             ;
 ; Total MLAB memory bits                      ; 0              ;
-; Total block memory bits                     ; 12             ;
+; Total block memory bits                     ; 312            ;
 ;                                             ;                ;
-; Total DSP Blocks                            ; 0              ;
+; Total DSP Blocks                            ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 22             ;
-; Total fan-out                               ; 338            ;
-; Average fan-out                             ; 1.51           ;
+; Maximum fan-out                             ; 86             ;
+; Total fan-out                               ; 1273           ;
+; Average fan-out                             ; 2.62           ;
 +---------------------------------------------+----------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                          ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                ; Entity Name         ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |FinalProjectLogic                        ; 68 (47)             ; 16 (16)                   ; 12                ; 0          ; 67   ; 0            ; |FinalProjectLogic                                                                                                 ; FinalProjectLogic   ; work         ;
-;    |deck:memory|                          ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory                                                                                     ; deck                ; work         ;
-;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory|altsyncram:altsyncram_component                                                     ; altsyncram          ; work         ;
-;          |altsyncram_67p1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12                ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated                      ; altsyncram_67p1     ; work         ;
-;    |lpm_divide:Mod0|                      ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
-;       |lpm_divide_42m:auto_generated|     ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated                                                   ; lpm_divide_42m      ; work         ;
-;          |sign_div_unsign_7kh:divider|    ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider                       ; sign_div_unsign_7kh ; work         ;
-;             |alt_u_div_kse:divider|       ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_kse:divider ; alt_u_div_kse       ; work         ;
-;    |seven_segment:dig0|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig0                                                                              ; seven_segment       ; work         ;
-;    |seven_segment:dig1|                   ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig1                                                                              ; seven_segment       ; work         ;
-;    |seven_segment_suit:dig2|              ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment_suit:dig2                                                                         ; seven_segment_suit  ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                     ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                           ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |FinalProjectLogic                        ; 264 (64)            ; 80 (12)                   ; 312               ; 1          ; 67   ; 0            ; |FinalProjectLogic                                                                                                                            ; FinalProjectLogic   ; work         ;
+;    |deck:memory|                          ; 0 (0)               ; 0 (0)                     ; 312               ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory                                                                                                                ; deck                ; work         ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)               ; 0 (0)                     ; 312               ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory|altsyncram:altsyncram_component                                                                                ; altsyncram          ; work         ;
+;          |altsyncram_67p1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 312               ; 0          ; 0    ; 0            ; |FinalProjectLogic|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated                                                 ; altsyncram_67p1     ; work         ;
+;    |lpm_divide:Div1|                      ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div1                                                                                                            ; lpm_divide          ; work         ;
+;       |lpm_divide_2am:auto_generated|     ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div1|lpm_divide_2am:auto_generated                                                                              ; lpm_divide_2am      ; work         ;
+;          |sign_div_unsign_8kh:divider|    ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div1|lpm_divide_2am:auto_generated|sign_div_unsign_8kh:divider                                                  ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_mse:divider|       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div1|lpm_divide_2am:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_mse:divider                            ; alt_u_div_mse       ; work         ;
+;    |lpm_divide:Div2|                      ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div2                                                                                                            ; lpm_divide          ; work         ;
+;       |lpm_divide_2am:auto_generated|     ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div2|lpm_divide_2am:auto_generated                                                                              ; lpm_divide_2am      ; work         ;
+;          |sign_div_unsign_8kh:divider|    ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div2|lpm_divide_2am:auto_generated|sign_div_unsign_8kh:divider                                                  ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_mse:divider|       ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Div2|lpm_divide_2am:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_mse:divider                            ; alt_u_div_mse       ; work         ;
+;    |lpm_divide:Mod0|                      ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0                                                                                                            ; lpm_divide          ; work         ;
+;       |lpm_divide_42m:auto_generated|     ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated                                                                              ; lpm_divide_42m      ; work         ;
+;          |sign_div_unsign_7kh:divider|    ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider                                                  ; sign_div_unsign_7kh ; work         ;
+;             |alt_u_div_kse:divider|       ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod0|lpm_divide_42m:auto_generated|sign_div_unsign_7kh:divider|alt_u_div_kse:divider                            ; alt_u_div_kse       ; work         ;
+;    |lpm_divide:Mod1|                      ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod1                                                                                                            ; lpm_divide          ; work         ;
+;       |lpm_divide_52m:auto_generated|     ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod1|lpm_divide_52m:auto_generated                                                                              ; lpm_divide_52m      ; work         ;
+;          |sign_div_unsign_8kh:divider|    ; 16 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod1|lpm_divide_52m:auto_generated|sign_div_unsign_8kh:divider                                                  ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_mse:divider|       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod1|lpm_divide_52m:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_mse:divider                            ; alt_u_div_mse       ; work         ;
+;    |lpm_divide:Mod2|                      ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod2                                                                                                            ; lpm_divide          ; work         ;
+;       |lpm_divide_52m:auto_generated|     ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod2|lpm_divide_52m:auto_generated                                                                              ; lpm_divide_52m      ; work         ;
+;          |sign_div_unsign_8kh:divider|    ; 17 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod2|lpm_divide_52m:auto_generated|sign_div_unsign_8kh:divider                                                  ; sign_div_unsign_8kh ; work         ;
+;             |alt_u_div_mse:divider|       ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|lpm_divide:Mod2|lpm_divide_52m:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_mse:divider                            ; alt_u_div_mse       ; work         ;
+;    |seven_segment:dig0|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig0                                                                                                         ; seven_segment       ; work         ;
+;    |seven_segment:dig1|                   ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig1                                                                                                         ; seven_segment       ; work         ;
+;    |seven_segment:dig4|                   ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig4                                                                                                         ; seven_segment       ; work         ;
+;    |seven_segment:dig5|                   ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment:dig5                                                                                                         ; seven_segment       ; work         ;
+;    |seven_segment_suit:dig2|              ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|seven_segment_suit:dig2                                                                                                    ; seven_segment_suit  ; work         ;
+;    |shuffle_deck_v2:my_deck_v2|           ; 103 (96)            ; 68 (68)                   ; 0                 ; 1          ; 0    ; 0            ; |FinalProjectLogic|shuffle_deck_v2:my_deck_v2                                                                                                 ; shuffle_deck_v2     ; work         ;
+;       |lpm_divide:Mod0|                   ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_82m:auto_generated|  ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0|lpm_divide_82m:auto_generated                                                   ; lpm_divide_82m      ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 7 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0|lpm_divide_82m:auto_generated|sign_div_unsign_bkh:divider                       ; sign_div_unsign_bkh ; work         ;
+;                |alt_u_div_sse:divider|    ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0|lpm_divide_82m:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_sse:divider ; alt_u_div_sse       ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -271,40 +305,54 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+------+---------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis IP Cores Summary                                                                                                 ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------------+-----------------+
-; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                     ; IP Include File ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------------+-----------------+
-; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |FinalProjectLogic|deck:memory                      ; deck.v          ;
-; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |FinalProjectLogic|shuffle_deck:my_deck|deck:memory ; deck.v          ;
-+--------+--------------+---------+--------------+--------------+-----------------------------------------------------+-----------------+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Independent 9x9                 ; 1           ;
+; Total number of DSP blocks      ; 1           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 1           ;
++---------------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                            ;
++--------+--------------+---------+--------------+--------------+--------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                ; IP Include File ;
++--------+--------------+---------+--------------+--------------+--------------------------------+-----------------+
+; Altera ; RAM: 1-PORT  ; 23.1    ; N/A          ; N/A          ; |FinalProjectLogic|deck:memory ; deck.v          ;
++--------+--------------+---------+--------------+--------------+--------------------------------+-----------------+
 
 
 Encoding Type:  One-Hot
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |FinalProjectLogic|S                                                                                                                                                                                                                                                                 ;
-+----------------------+---------------------+--------------+-------------+----------------+---------------+----------------------+----------+-----------+-------------+-------------+-------------------+--------------+------------------+-------------------+--------------+--------------+---------+
-; Name                 ; S.WAIT_ACE_CHOICE_1 ; S.DEALER_GET ; S.WAIT_CONT ; S.DISPLAY_CARD ; S.WAIT_PSTAND ; S.WAIT_ACE_CHOICE_11 ; S.IS_ACE ; S.IS_BUST ; S.WAIT_PHIT ; S.DEAL_STEP ; S.WAIT_START_GAME ; S.START_GAME ; S.SHOW_NEXT_CARD ; S.WAIT_SHUFF_DONE ; S.SEED_ENTER ; S.WAIT_START ; S.START ;
-+----------------------+---------------------+--------------+-------------+----------------+---------------+----------------------+----------+-----------+-------------+-------------+-------------------+--------------+------------------+-------------------+--------------+--------------+---------+
-; S.START              ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 0       ;
-; S.WAIT_START         ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 1            ; 1       ;
-; S.SEED_ENTER         ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 1            ; 0            ; 1       ;
-; S.WAIT_SHUFF_DONE    ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 1                 ; 0            ; 0            ; 1       ;
-; S.SHOW_NEXT_CARD     ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 1                ; 0                 ; 0            ; 0            ; 1       ;
-; S.START_GAME         ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 1            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.WAIT_START_GAME    ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 1                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.DEAL_STEP          ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 1           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.WAIT_PHIT          ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 1           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.IS_BUST            ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 1         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.IS_ACE             ; 0                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 1        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.WAIT_ACE_CHOICE_11 ; 0                   ; 0            ; 0           ; 0              ; 0             ; 1                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.WAIT_PSTAND        ; 0                   ; 0            ; 0           ; 0              ; 1             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.DISPLAY_CARD       ; 0                   ; 0            ; 0           ; 1              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.WAIT_CONT          ; 0                   ; 0            ; 1           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.DEALER_GET         ; 0                   ; 1            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-; S.WAIT_ACE_CHOICE_1  ; 1                   ; 0            ; 0           ; 0              ; 0             ; 0                    ; 0        ; 0         ; 0           ; 0           ; 0                 ; 0            ; 0                ; 0                 ; 0            ; 0            ; 1       ;
-+----------------------+---------------------+--------------+-------------+----------------+---------------+----------------------+----------+-----------+-------------+-------------+-------------------+--------------+------------------+-------------------+--------------+--------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|S                                                                                                                                                                                                                                                                                                                              ;
++--------------------------+------------------+---------+--------+-------+--------------------------+---------------------+---------------------+----------------+------------------------+-------------------+-------------------------+--------------------+------------------+-------------+------------+-------------------------+--------------------+-----------+--------------+---------+
+; Name                     ; S.RAND_IND_CHECK ; S.ERROR ; S.DONE ; S.INC ; S.REASSIGN_ZERO_MEM_BUFF ; S.REASSIGN_ZERO_MEM ; S.SET_IND_ZERO_BUFF ; S.SET_IND_ZERO ; S.ASSIGN_RAND_MEM_BUFF ; S.ASSIGN_RAND_MEM ; S.ASSIGN_RAND_CARD_BUFF ; S.ASSIGN_RAND_CARD ; S.SET_INDEX_BUFF ; S.SET_INDEX ; S.RAND_IND ; S.ASSIGN_ZERO_CARD_BUFF ; S.ASSIGN_ZERO_CARD ; S.WAIT_EN ; S.SEED_ENTER ; S.START ;
++--------------------------+------------------+---------+--------+-------+--------------------------+---------------------+---------------------+----------------+------------------------+-------------------+-------------------------+--------------------+------------------+-------------+------------+-------------------------+--------------------+-----------+--------------+---------+
+; S.START                  ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 0       ;
+; S.SEED_ENTER             ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 1            ; 1       ;
+; S.WAIT_EN                ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 1         ; 0            ; 1       ;
+; S.ASSIGN_ZERO_CARD       ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 1                  ; 0         ; 0            ; 1       ;
+; S.ASSIGN_ZERO_CARD_BUFF  ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 1                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.RAND_IND               ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 1          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.SET_INDEX              ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 1           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.SET_INDEX_BUFF         ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 1                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.ASSIGN_RAND_CARD       ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 1                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.ASSIGN_RAND_CARD_BUFF  ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 1                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.ASSIGN_RAND_MEM        ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 1                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.ASSIGN_RAND_MEM_BUFF   ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 1                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.SET_IND_ZERO           ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 1              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.SET_IND_ZERO_BUFF      ; 0                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 1                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.REASSIGN_ZERO_MEM      ; 0                ; 0       ; 0      ; 0     ; 0                        ; 1                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.REASSIGN_ZERO_MEM_BUFF ; 0                ; 0       ; 0      ; 0     ; 1                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.INC                    ; 0                ; 0       ; 0      ; 1     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.DONE                   ; 0                ; 0       ; 1      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.ERROR                  ; 0                ; 1       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
+; S.RAND_IND_CHECK         ; 1                ; 0       ; 0      ; 0     ; 0                        ; 0                   ; 0                   ; 0              ; 0                      ; 0                 ; 0                       ; 0                  ; 0                ; 0           ; 0          ; 0                       ; 0                  ; 0         ; 0            ; 1       ;
++--------------------------+------------------+---------+--------+-------+--------------------------+---------------------+---------------------+----------------+------------------------+-------------------+-------------------------+--------------------+------------------+-------------+------------+-------------------------+--------------------+-----------+--------------+---------+
 
 
 +----------------------------------------------------------------------------------------------------+
@@ -312,46 +360,42 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------+---------------------+------------------------+
 ; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
 +-----------------------------------------------------+---------------------+------------------------+
-; card_num[0]                                         ; WideOr17            ; yes                    ;
-; card_num[1]                                         ; WideOr17            ; yes                    ;
-; card_num[2]                                         ; WideOr17            ; yes                    ;
-; card_num[3]                                         ; WideOr17            ; yes                    ;
-; card_suit[1]                                        ; WideOr17            ; yes                    ;
-; card_suit[0]                                        ; WideOr17            ; yes                    ;
-; NS.WAIT_START_GAME_598                              ; WideNor0            ; yes                    ;
-; NS.START_638                                        ; WideNor0            ; yes                    ;
-; NS.WAIT_SHUFF_DONE_614                              ; WideNor0            ; yes                    ;
-; NS.START_GAME_606                                   ; WideNor0            ; yes                    ;
-; NS.WAIT_CONT_534                                    ; WideNor0            ; yes                    ;
-; NS.DEALER_GET_526                                   ; WideNor0            ; yes                    ;
-; NS.SEED_ENTER_622                                   ; WideNor0            ; yes                    ;
-; NS.IS_BUST_574                                      ; WideNor0            ; yes                    ;
-; NS.WAIT_PSTAND_550                                  ; WideNor0            ; yes                    ;
-; NS.WAIT_START_630                                   ; WideNor0            ; yes                    ;
-; NS.WAIT_ACE_CHOICE_1_518                            ; WideNor0            ; yes                    ;
-; NS.WAIT_ACE_CHOICE_11_558                           ; WideNor0            ; yes                    ;
-; NS.DISPLAY_CARD_542                                 ; WideNor0            ; yes                    ;
-; NS.DEAL_STEP_590                                    ; WideNor0            ; yes                    ;
-; NS.IS_ACE_566                                       ; WideNor0            ; yes                    ;
-; NS.WAIT_PHIT_582                                    ; WideNor0            ; yes                    ;
-; Number of user-specified and inferred latches = 22  ;                     ;                        ;
+; deck_write_data[0]                                  ; WideOr3             ; yes                    ;
+; deck_write_data[1]                                  ; WideOr3             ; yes                    ;
+; deck_write_data[2]                                  ; WideOr3             ; yes                    ;
+; deck_write_data[3]                                  ; WideOr3             ; yes                    ;
+; deck_write_data[4]                                  ; WideOr3             ; yes                    ;
+; deck_write_data[5]                                  ; WideOr3             ; yes                    ;
+; wren                                                ; WideOr3             ; yes                    ;
+; deck_index[0]                                       ; WideOr5             ; yes                    ;
+; deck_index[1]                                       ; WideOr5             ; yes                    ;
+; deck_index[2]                                       ; WideOr5             ; yes                    ;
+; deck_index[3]                                       ; WideOr5             ; yes                    ;
+; deck_index[4]                                       ; WideOr5             ; yes                    ;
+; deck_index[5]                                       ; WideOr5             ; yes                    ;
+; NS[0]                                               ; Mux0                ; yes                    ;
+; NS[1]                                               ; Mux0                ; yes                    ;
+; NS[2]                                               ; Mux0                ; yes                    ;
+; NS[3]                                               ; Mux0                ; yes                    ;
+; NS[4]                                               ; Mux0                ; yes                    ;
+; Number of user-specified and inferred latches = 18  ;                     ;                        ;
 +-----------------------------------------------------+---------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; S.SHOW_NEXT_CARD                      ; Lost fanout        ;
-; S~4                                   ; Lost fanout        ;
-; S~5                                   ; Lost fanout        ;
-; S~6                                   ; Lost fanout        ;
-; S~7                                   ; Lost fanout        ;
-; S~8                                   ; Lost fanout        ;
-; Total Number of Removed Registers = 6 ;                    ;
-+---------------------------------------+--------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; shuffle_deck_v2:my_deck_v2|S~4        ; Lost fanout                            ;
+; shuffle_deck_v2:my_deck_v2|S~5        ; Lost fanout                            ;
+; shuffle_deck_v2:my_deck_v2|S~6        ; Lost fanout                            ;
+; shuffle_deck_v2:my_deck_v2|S~7        ; Lost fanout                            ;
+; shuffle_deck_v2:my_deck_v2|S~8        ; Lost fanout                            ;
+; shuffle_deck_v2:my_deck_v2|S.ERROR    ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 6 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -359,14 +403,26 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 16    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 80    ;
+; Number of registers using Synchronous Clear  ; 5     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Clear ; 74    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 18    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|deck_write_data[0] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |FinalProjectLogic|shuffle_deck_v2:my_deck_v2|rand_ind[5]        ;
+; 18:1               ; 6 bits    ; 72 LEs        ; 6 LEs                ; 66 LEs                 ; Yes        ; |FinalProjectLogic|show_card_index[5]                            ;
+; 12:1               ; 6 bits    ; 48 LEs        ; 36 LEs               ; 12 LEs                 ; No         ; |FinalProjectLogic|Selector13                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -378,15 +434,6 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +---------------------------------+--------------------+------+-------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated ;
-+---------------------------------+--------------------+------+----------------------------------------------------------+
-; Assignment                      ; Value              ; From ; To                                                       ;
-+---------------------------------+--------------------+------+----------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                        ;
-+---------------------------------+--------------------+------+----------------------------------------------------------+
-
-
 +-----------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |FinalProjectLogic ;
 +--------------------+-------+------------------------------------------------------+
@@ -395,10 +442,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; START              ; 00000 ; Unsigned Binary                                      ;
 ; WAIT_START         ; 00001 ; Unsigned Binary                                      ;
 ; SEED_ENTER         ; 00010 ; Unsigned Binary                                      ;
-; WAIT_SHUFF_DONE    ; 00011 ; Unsigned Binary                                      ;
+; START_SHUFF        ; 00011 ; Unsigned Binary                                      ;
+; WAIT_SHUFF_DONE    ; 00110 ; Unsigned Binary                                      ;
 ; START_GAME         ; 01000 ; Unsigned Binary                                      ;
 ; WAIT_START_GAME    ; 01001 ; Unsigned Binary                                      ;
 ; SHOW_NEXT_CARD     ; 00100 ; Unsigned Binary                                      ;
+; SHOW_NEXT_BUFF     ; 00101 ; Unsigned Binary                                      ;
 ; DEAL_STEP          ; 01010 ; Unsigned Binary                                      ;
 ; WAIT_PHIT          ; 01011 ; Unsigned Binary                                      ;
 ; DISPLAY_CARD       ; 10000 ; Unsigned Binary                                      ;
@@ -481,84 +530,32 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: shuffle_deck:my_deck ;
-+----------------+-------+------------------------------------------+
-; Parameter Name ; Value ; Type                                     ;
-+----------------+-------+------------------------------------------+
-; START          ; 0000  ; Unsigned Binary                          ;
-; SEED_ENTER     ; 0001  ; Unsigned Binary                          ;
-; WAIT_EN        ; 0010  ; Unsigned Binary                          ;
-; RANDOMIZE      ; 0011  ; Unsigned Binary                          ;
-; FETCH_BUFF     ; 0100  ; Unsigned Binary                          ;
-; FETCH_CARD     ; 0101  ; Unsigned Binary                          ;
-; GET_INDEX      ; 0110  ; Unsigned Binary                          ;
-; DATA_BUFF      ; 0111  ; Unsigned Binary                          ;
-; REPLACE_CARDS  ; 1000  ; Unsigned Binary                          ;
-; RESET_VALUES   ; 1001  ; Unsigned Binary                          ;
-; DONE           ; 1010  ; Unsigned Binary                          ;
-+----------------+-------+------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component ;
-+------------------------------------+----------------------+---------------------------------------------------+
-; Parameter Name                     ; Value                ; Type                                              ;
-+------------------------------------+----------------------+---------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
-; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
-; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
-; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
-; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
-; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                           ;
-; WIDTH_A                            ; 6                    ; Signed Integer                                    ;
-; WIDTHAD_A                          ; 6                    ; Signed Integer                                    ;
-; NUMWORDS_A                         ; 52                   ; Signed Integer                                    ;
-; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
-; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
-; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
-; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
-; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
-; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
-; WIDTH_B                            ; 1                    ; Untyped                                           ;
-; WIDTHAD_B                          ; 1                    ; Untyped                                           ;
-; NUMWORDS_B                         ; 1                    ; Untyped                                           ;
-; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
-; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
-; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                           ;
-; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
-; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
-; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
-; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
-; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
-; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
-; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
-; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
-; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                    ;
-; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
-; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                           ;
-; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                           ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
-; INIT_FILE                          ; black_jack_deck.mif  ; Untyped                                           ;
-; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
-; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                           ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                           ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
-; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
-; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
-; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
-; CBXI_PARAMETER                     ; altsyncram_67p1      ; Untyped                                           ;
-+------------------------------------+----------------------+---------------------------------------------------+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: shuffle_deck_v2:my_deck_v2 ;
++------------------------+-------+----------------------------------------+
+; Parameter Name         ; Value ; Type                                   ;
++------------------------+-------+----------------------------------------+
+; START                  ; 00000 ; Unsigned Binary                        ;
+; SEED_ENTER             ; 00001 ; Unsigned Binary                        ;
+; WAIT_EN                ; 00010 ; Unsigned Binary                        ;
+; ASSIGN_ZERO_CARD       ; 00011 ; Unsigned Binary                        ;
+; ASSIGN_ZERO_CARD_BUFF  ; 00100 ; Unsigned Binary                        ;
+; RAND_IND               ; 00101 ; Unsigned Binary                        ;
+; SET_INDEX              ; 00110 ; Unsigned Binary                        ;
+; SET_INDEX_BUFF         ; 00111 ; Unsigned Binary                        ;
+; ASSIGN_RAND_CARD       ; 01000 ; Unsigned Binary                        ;
+; ASSIGN_RAND_CARD_BUFF  ; 01001 ; Unsigned Binary                        ;
+; ASSIGN_RAND_MEM        ; 01010 ; Unsigned Binary                        ;
+; ASSIGN_RAND_MEM_BUFF   ; 01011 ; Unsigned Binary                        ;
+; SET_IND_ZERO           ; 01100 ; Unsigned Binary                        ;
+; SET_IND_ZERO_BUFF      ; 01101 ; Unsigned Binary                        ;
+; REASSIGN_ZERO_MEM      ; 01110 ; Unsigned Binary                        ;
+; REASSIGN_ZERO_MEM_BUFF ; 01111 ; Unsigned Binary                        ;
+; INC                    ; 10000 ; Unsigned Binary                        ;
+; DONE                   ; 10001 ; Unsigned Binary                        ;
+; ERROR                  ; 10010 ; Unsigned Binary                        ;
+; RAND_IND_CHECK         ; 10110 ; Unsigned Binary                        ;
++------------------------+-------+----------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -585,54 +582,150 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                                                             ;
-+-------------------------------------------+------------------------------------------------------------------+
-; Name                                      ; Value                                                            ;
-+-------------------------------------------+------------------------------------------------------------------+
-; Number of entity instances                ; 2                                                                ;
-; Entity Instance                           ; deck:memory|altsyncram:altsyncram_component                      ;
-;     -- OPERATION_MODE                     ; SINGLE_PORT                                                      ;
-;     -- WIDTH_A                            ; 6                                                                ;
-;     -- NUMWORDS_A                         ; 52                                                               ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                     ;
-;     -- WIDTH_B                            ; 1                                                                ;
-;     -- NUMWORDS_B                         ; 1                                                                ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                           ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                     ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                             ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                        ;
-; Entity Instance                           ; shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component ;
-;     -- OPERATION_MODE                     ; SINGLE_PORT                                                      ;
-;     -- WIDTH_A                            ; 6                                                                ;
-;     -- NUMWORDS_A                         ; 52                                                               ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                     ;
-;     -- WIDTH_B                            ; 1                                                                ;
-;     -- NUMWORDS_B                         ; 1                                                                ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                           ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                     ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                             ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                        ;
-+-------------------------------------------+------------------------------------------------------------------+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_52m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "shuffle_deck:my_deck"                                                                                                                                                            ;
-+------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                                                           ;
-+------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; en   ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
-; seed ; Input ; Warning  ; Input port expression (10 bits) is wider than the input port (6 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_52m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------+
-; Port Connectivity Checks: "deck:memory" ;
-+------+-------+----------+---------------+
-; Port ; Type  ; Severity ; Details       ;
-+------+-------+----------+---------------+
-; data ; Input ; Info     ; Stuck at GND  ;
-+------+-------+----------+---------------+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_2am ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_2am ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                              ;
++------------------------+----------------+---------------------------------------------------+
+; LPM_WIDTHN             ; 6              ; Untyped                                           ;
+; LPM_WIDTHD             ; 6              ; Untyped                                           ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                           ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                           ;
+; LPM_PIPELINE           ; 0              ; Untyped                                           ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                           ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                           ;
+; CBXI_PARAMETER         ; lpm_divide_82m ; Untyped                                           ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                           ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                           ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                    ;
++------------------------+----------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                        ;
++-------------------------------------------+---------------------------------------------+
+; Name                                      ; Value                                       ;
++-------------------------------------------+---------------------------------------------+
+; Number of entity instances                ; 1                                           ;
+; Entity Instance                           ; deck:memory|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                 ;
+;     -- WIDTH_A                            ; 6                                           ;
+;     -- NUMWORDS_A                         ; 52                                          ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                ;
+;     -- WIDTH_B                            ; 1                                           ;
+;     -- NUMWORDS_B                         ; 1                                           ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                      ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                        ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                   ;
++-------------------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "shuffle_deck_v2:my_deck_v2"                                                                                                                                                        ;
++-------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                                                                           ;
++-------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; seed  ; Input  ; Warning  ; Input port expression (10 bits) is wider than the input port (6 bits) it drives.  The 4 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; enOut ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                               ;
+; wren  ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (6 bits) it drives.  The 5 most-significant bit(s) in the port expression will be connected to GND.             ;
++-------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -640,25 +733,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 16                          ;
-;     CLR               ; 16                          ;
-; arriav_lcell_comb     ; 72                          ;
-;     normal            ; 67                          ;
+; arriav_ff             ; 80                          ;
+;     CLR               ; 62                          ;
+;     ENA               ; 1                           ;
+;     ENA CLR           ; 12                          ;
+;     ENA SCLR          ; 5                           ;
+; arriav_lcell_comb     ; 272                         ;
+;     arith             ; 57                          ;
+;         0 data inputs ; 12                          ;
+;         1 data inputs ; 29                          ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 8                           ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 190                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 14                          ;
-;         3 data inputs ; 34                          ;
-;         4 data inputs ; 11                          ;
-;         5 data inputs ; 1                           ;
-;         6 data inputs ; 1                           ;
-;     shared            ; 5                           ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 4                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 44                          ;
+;         4 data inputs ; 67                          ;
+;         5 data inputs ; 30                          ;
+;         6 data inputs ; 15                          ;
+;     shared            ; 22                          ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 18                          ;
+; arriav_mac            ; 1                           ;
 ; boundary_port         ; 67                          ;
 ; stratixv_ram_block    ; 6                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 2.25                        ;
+; Max LUT depth         ; 9.70                        ;
+; Average LUT depth     ; 4.56                        ;
 +-----------------------+-----------------------------+
 
 
@@ -667,7 +771,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -677,10 +781,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Sun Dec  7 14:10:15 2025
+    Info: Processing started: Tue Dec  9 23:30:28 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProjectLogic -c FinalProjectLogic
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 20 processors detected
+Warning (10090): Verilog HDL syntax warning at Black_Jack_Main_FSM.v(351): extra block comment delimiter characters /* within block comment File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 351
 Info (12021): Found 1 design units, including 1 entities, in source file black_jack_main_fsm.v
     Info (12023): Found entity 1: FinalProjectLogic File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file deck.v
@@ -690,93 +795,54 @@ Info (12021): Found 1 design units, including 1 entities, in source file seven_s
 Warning (10463): Verilog HDL Declaration warning at lfsr.v(5): "rand" is SystemVerilog-2005 keyword File: M:/ECE287/LABS/Final_Project_Logic/lfsr.v Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file lfsr.v
     Info (12023): Found entity 1: lfsr File: M:/ECE287/LABS/Final_Project_Logic/lfsr.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at Black_Jack_Main_FSM.v(165): created implicit net for "wren" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 165
+Info (12021): Found 1 design units, including 1 entities, in source file shuffle_deck_v2.v
+    Info (12023): Found entity 1: shuffle_deck_v2 File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 1
 Info (12127): Elaborating entity "FinalProjectLogic" for the top level hierarchy
 Warning (10858): Verilog HDL warning at Black_Jack_Main_FSM.v(105): object seg7_dig3 used but never assigned File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 105
-Warning (10858): Verilog HDL warning at Black_Jack_Main_FSM.v(106): object seg7_dig4 used but never assigned File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 106
-Warning (10858): Verilog HDL warning at Black_Jack_Main_FSM.v(107): object seg7_dig5 used but never assigned File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 107
+Warning (10036): Verilog HDL or VHDL warning at Black_Jack_Main_FSM.v(123): object "playerP" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 123
+Warning (10036): Verilog HDL or VHDL warning at Black_Jack_Main_FSM.v(124): object "dealerP" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 124
+Warning (10036): Verilog HDL or VHDL warning at Black_Jack_Main_FSM.v(126): object "playerT" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 126
 Warning (10036): Verilog HDL or VHDL warning at Black_Jack_Main_FSM.v(127): object "dealerT" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 127
-Warning (10036): Verilog HDL or VHDL warning at Black_Jack_Main_FSM.v(142): object "display_control" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 142
-Warning (10270): Verilog HDL Case Statement warning at Black_Jack_Main_FSM.v(209): incomplete case statement has no default case item File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10264): Verilog HDL Case Statement information at Black_Jack_Main_FSM.v(209): all case item expressions in this case statement are onehot File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(209): inferring latch(es) for variable "NS", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(347): truncated value with size 6 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 347
-Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(348): truncated value with size 6 to match size of target (2) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 348
-Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(351): truncated value with size 32 to match size of target (6) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 351
-Warning (10270): Verilog HDL Case Statement warning at Black_Jack_Main_FSM.v(319): incomplete case statement has no default case item File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 319
-Info (10264): Verilog HDL Case Statement information at Black_Jack_Main_FSM.v(319): all case item expressions in this case statement are onehot File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 319
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "startShuff", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "playerP", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "dealerP", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "playerT", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "deck_index", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "deck_write_data", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "card_num", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(318): inferring latch(es) for variable "card_suit", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(378): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
-Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(379): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 379
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(262): truncated value with size 6 to match size of target (1) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 262
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(277): truncated value with size 6 to match size of target (1) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 277
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(240): inferring latch(es) for variable "wren", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(240): inferring latch(es) for variable "deck_write_data", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(240): inferring latch(es) for variable "deck_index", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Warning (10240): Verilog HDL Always Construct warning at Black_Jack_Main_FSM.v(240): inferring latch(es) for variable "NS", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(411): truncated value with size 32 to match size of target (1) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 411
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(428): truncated value with size 32 to match size of target (6) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 428
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(461): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 461
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(462): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 462
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(463): truncated value with size 6 to match size of target (2) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 463
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(466): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 466
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(467): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 467
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(471): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 471
+Warning (10230): Verilog HDL assignment warning at Black_Jack_Main_FSM.v(472): truncated value with size 32 to match size of target (4) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 472
 Warning (10030): Net "seg7_dig3" at Black_Jack_Main_FSM.v(105) has no driver or initial value, using a default initial value '0' File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 105
-Warning (10030): Net "seg7_dig4" at Black_Jack_Main_FSM.v(106) has no driver or initial value, using a default initial value '0' File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 106
-Warning (10030): Net "seg7_dig5" at Black_Jack_Main_FSM.v(107) has no driver or initial value, using a default initial value '0' File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 107
-Info (10041): Inferred latch for "card_suit[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "card_suit[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "card_num[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "card_num[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "card_num[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "card_num[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_write_data[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_write_data[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_write_data[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_write_data[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_write_data[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_write_data[5]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_index[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_index[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_index[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_index[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_index[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "deck_index[5]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerT[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerT[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerT[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerT[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerT[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "dealerP[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "dealerP[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "dealerP[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "dealerP[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "dealerP[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerP[0]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerP[1]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerP[2]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerP[3]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "playerP[4]" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "startShuff" at Black_Jack_Main_FSM.v(318) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-Info (10041): Inferred latch for "NS.WAIT_ACE_CHOICE_1" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.DEALER_GET" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.WAIT_CONT" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.DISPLAY_CARD" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.WAIT_PSTAND" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.WAIT_ACE_CHOICE_11" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.IS_ACE" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.IS_BUST" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.WAIT_PHIT" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.DEAL_STEP" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.WAIT_START_GAME" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.START_GAME" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.WAIT_SHUFF_DONE" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.SEED_ENTER" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.WAIT_START" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-Info (10041): Inferred latch for "NS.START" at Black_Jack_Main_FSM.v(209) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
+Warning (10034): Output port "LEDR[9..6]" at Black_Jack_Main_FSM.v(55) has no driver File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+Info (10041): Inferred latch for "NS[0]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "NS[1]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "NS[2]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "NS[3]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "NS[4]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_index[0]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_index[1]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_index[2]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_index[3]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_index[4]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_index[5]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_write_data[0]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_write_data[1]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_write_data[2]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_write_data[3]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_write_data[4]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "deck_write_data[5]" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+Info (10041): Inferred latch for "wren" at Black_Jack_Main_FSM.v(240) File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
 Warning (12125): Using design file seven_segment.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: seven_segment File: M:/ECE287/LABS/Final_Project_Logic/seven_segment.v Line: 1
-Info (12128): Elaborating entity "seven_segment" for hierarchy "seven_segment:dig0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 161
-Info (12128): Elaborating entity "seven_segment_suit" for hierarchy "seven_segment_suit:dig2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 163
-Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(20): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 20
-Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(22): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 22
-Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(24): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 24
-Warning (10230): Verilog HDL assignment warning at seven_segment_suit.v(26): truncated value with size 32 to match size of target (7) File: M:/ECE287/LABS/Final_Project_Logic/seven_segment_suit.v Line: 26
-Info (12128): Elaborating entity "deck" for hierarchy "deck:memory" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 165
+Info (12128): Elaborating entity "seven_segment" for hierarchy "seven_segment:dig0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 164
+Info (12128): Elaborating entity "seven_segment_suit" for hierarchy "seven_segment_suit:dig2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 166
+Info (12128): Elaborating entity "deck" for hierarchy "deck:memory" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 182
 Info (12128): Elaborating entity "altsyncram" for hierarchy "deck:memory|altsyncram:altsyncram_component" File: M:/ECE287/LABS/Final_Project_Logic/deck.v Line: 86
 Info (12130): Elaborated megafunction instantiation "deck:memory|altsyncram:altsyncram_component" File: M:/ECE287/LABS/Final_Project_Logic/deck.v Line: 86
 Info (12133): Instantiated megafunction "deck:memory|altsyncram:altsyncram_component" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/deck.v Line: 86
@@ -798,81 +864,23 @@ Info (12133): Instantiated megafunction "deck:memory|altsyncram:altsyncram_compo
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_67p1.tdf
     Info (12023): Found entity 1: altsyncram_67p1 File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 28
 Info (12128): Elaborating entity "altsyncram_67p1" for hierarchy "deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated" File: c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
-Warning (12125): Using design file shuffle_deck.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
-    Info (12023): Found entity 1: shuffle_deck File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 1
-Info (12128): Elaborating entity "shuffle_deck" for hierarchy "shuffle_deck:my_deck" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 166
-Warning (10230): Verilog HDL assignment warning at shuffle_deck.v(290): truncated value with size 32 to match size of target (2) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 290
-Warning (10230): Verilog HDL assignment warning at shuffle_deck.v(295): truncated value with size 32 to match size of target (2) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 295
-Warning (10230): Verilog HDL assignment warning at shuffle_deck.v(309): truncated value with size 32 to match size of target (6) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 309
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "previous_card", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "current_card", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "previous_slot", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "current_slot", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "shuffle_cnt", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "done", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "rnd_cnt", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "data_cnt", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "deck_index", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (10240): Verilog HDL Always Construct warning at shuffle_deck.v(148): inferring latch(es) for variable "deck_write_data", which holds its previous value in one or more paths through the always construct File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_write_data[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_write_data[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_write_data[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_write_data[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_write_data[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_write_data[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_index[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_index[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_index[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_index[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_index[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "deck_index[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "data_cnt[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "data_cnt[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "rnd_cnt[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "rnd_cnt[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "done" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "shuffle_cnt[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "shuffle_cnt[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "shuffle_cnt[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "shuffle_cnt[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "shuffle_cnt[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "shuffle_cnt[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_slot[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_slot[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_slot[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_slot[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_slot[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_slot[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_slot[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_slot[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_slot[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_slot[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_slot[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_slot[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_card[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_card[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_card[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_card[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_card[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "current_card[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_card[0]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_card[1]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_card[2]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_card[3]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_card[4]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Info (10041): Inferred latch for "previous_card[5]" at shuffle_deck.v(148) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 148
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[0]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 37
-        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[1]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 61
-        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[2]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 85
-        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[3]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 109
-        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[4]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 133
-        Warning (14320): Synthesized away node "shuffle_deck:my_deck|deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|q_a[5]" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 157
-Info (278001): Inferred 1 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
-Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
-Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 378
+Info (12128): Elaborating entity "shuffle_deck_v2" for hierarchy "shuffle_deck_v2:my_deck_v2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 196
+Warning (10036): Verilog HDL or VHDL warning at shuffle_deck_v2.v(27): object "temp_card" assigned a value but never read File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 27
+Critical Warning (10237): Verilog HDL warning at shuffle_deck_v2.v(83): can't infer register for assignment in edge-triggered always construct because the clock isn't obvious. Generated combinational logic instead File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 83
+Warning (10230): Verilog HDL assignment warning at shuffle_deck_v2.v(229): truncated value with size 32 to match size of target (6) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 229
+Warning (10230): Verilog HDL assignment warning at shuffle_deck_v2.v(235): truncated value with size 32 to match size of target (6) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 235
+Warning (10230): Verilog HDL assignment warning at shuffle_deck_v2.v(291): truncated value with size 32 to match size of target (17) File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 291
+Info (10264): Verilog HDL Case Statement information at shuffle_deck_v2.v(183): all case item expressions in this case statement are onehot File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 183
+Warning (10034): Output port "enOut" at shuffle_deck_v2.v(18) has no driver File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 18
+Info (278001): Inferred 6 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 461
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 471
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 466
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 472
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 467
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "shuffle_deck_v2:my_deck_v2|Mod0" File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 235
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 461
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 461
     Info (12134): Parameter "LPM_WIDTHN" = "4"
     Info (12134): Parameter "LPM_WIDTHD" = "4"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
@@ -883,28 +891,79 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/sign
     Info (12023): Found entity 1: sign_div_unsign_7kh File: M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_7kh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_kse.tdf
     Info (12023): Found entity 1: alt_u_div_kse File: M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_kse.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 471
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 471
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_52m.tdf
+    Info (12023): Found entity 1: lpm_divide_52m File: M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_52m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_8kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_8kh File: M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_8kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mse.tdf
+    Info (12023): Found entity 1: alt_u_div_mse File: M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_mse.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div2" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 472
+Info (12133): Instantiated megafunction "lpm_divide:Div2" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 472
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_2am.tdf
+    Info (12023): Found entity 1: lpm_divide_2am File: M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_2am.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0" File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 235
+Info (12133): Instantiated megafunction "shuffle_deck_v2:my_deck_v2|lpm_divide:Mod0" with the following parameter: File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 235
+    Info (12134): Parameter "LPM_WIDTHN" = "6"
+    Info (12134): Parameter "LPM_WIDTHD" = "6"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_82m.tdf
+    Info (12023): Found entity 1: lpm_divide_82m File: M:/ECE287/LABS/Final_Project_Logic/db/lpm_divide_82m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: M:/ECE287/LABS/Final_Project_Logic/db/sign_div_unsign_bkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_sse.tdf
+    Info (12023): Found entity 1: alt_u_div_sse File: M:/ECE287/LABS/Final_Project_Logic/db/alt_u_div_sse.tdf Line: 23
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13012): Latch card_num[0] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
-Warning (13012): Latch card_num[1] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
-Warning (13012): Latch card_num[2] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
-Warning (13012): Latch card_num[3] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
-Warning (13012): Latch card_suit[1] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
-Warning (13012): Latch card_suit[0] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 318
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_START_GAME File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 153
-Warning (13012): Latch NS.START_638 has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_CONT File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 206
-Warning (13012): Latch NS.SEED_ENTER_622 has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 209
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal S.WAIT_CONT File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 206
+Warning (13012): Latch deck_write_data[0] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_write_data[1] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_write_data[2] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_write_data[3] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_write_data[4] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_write_data[5] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch wren has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 173
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_index[0] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[1] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_index[1] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[1] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_index[2] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[1] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_index[3] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[1] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_index[4] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[1] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch deck_index[5] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[1] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch NS[0] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch NS[1] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch NS[2] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch NS[3] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
+Warning (13012): Latch NS[4] has unsafe behavior File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 240
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[4] File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 237
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX1[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 41
     Warning (13410): Pin "HEX1[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 41
     Warning (13410): Pin "HEX1[6]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 41
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 42
     Warning (13410): Pin "HEX3[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
     Warning (13410): Pin "HEX3[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
     Warning (13410): Pin "HEX3[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
@@ -912,33 +971,13 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[4]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
     Warning (13410): Pin "HEX3[5]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
     Warning (13410): Pin "HEX3[6]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 43
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
-    Warning (13410): Pin "HEX4[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 44
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
     Warning (13410): Pin "HEX5[1]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 45
-    Warning (13410): Pin "LEDR[0]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[1]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[2]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[3]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[4]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[5]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[6]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[7]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[8]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
-    Warning (13410): Pin "LEDR[9]" is stuck at VCC File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 55
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 6 registers lost all their fanouts during netlist optimizations.
-Info (17036): Removed 5 MSB VCC or GND address nodes from RAM block "deck:memory|altsyncram:altsyncram_component|altsyncram_67p1:auto_generated|ALTSYNCRAM" File: M:/ECE287/LABS/Final_Project_Logic/db/altsyncram_67p1.tdf Line: 33
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not exist in design
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[0] -entity DE1_SoC was ignored
     Warning (20014): Assignment for entity set_instance_assignment -name PACKAGE_SKEW_COMPENSATION OFF -to HPS_DDR3_ADDR[10] -entity DE1_SoC was ignored
@@ -1514,27 +1553,21 @@ Warning (20013): Ignored 571 assignments for entity "DE1_SoC" -- entity does not
 Info (144001): Generated suppressed messages file M:/ECE287/LABS/Final_Project_Logic/output_files/FinalProjectLogic.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[0]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 52
-    Warning (15610): No output dependent on input pin "SW[0]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
-    Warning (15610): No output dependent on input pin "SW[1]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
-    Warning (15610): No output dependent on input pin "SW[2]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
-    Warning (15610): No output dependent on input pin "SW[3]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
-    Warning (15610): No output dependent on input pin "SW[4]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
-    Warning (15610): No output dependent on input pin "SW[5]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
     Warning (15610): No output dependent on input pin "SW[7]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
     Warning (15610): No output dependent on input pin "SW[8]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
     Warning (15610): No output dependent on input pin "SW[9]" File: M:/ECE287/LABS/Final_Project_Logic/Black_Jack_Main_FSM.v Line: 88
-Info (21057): Implemented 156 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 360 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 83 logic cells
+    Info (21061): Implemented 286 logic cells
     Info (21064): Implemented 6 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 691 warnings
-    Info: Peak virtual memory: 4877 megabytes
-    Info: Processing ended: Sun Dec  7 14:10:23 2025
-    Info: Elapsed time: 00:00:08
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 662 warnings
+    Info: Peak virtual memory: 4880 megabytes
+    Info: Processing ended: Tue Dec  9 23:30:38 2025
+    Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:04
 
 

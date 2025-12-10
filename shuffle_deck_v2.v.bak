@@ -1,0 +1,31 @@
+module shuffle_deck_v2(
+	input clk,
+	input rst,
+	
+	// these inputs control when the FSM starts and what seed the pseudorandom number generater runs under
+	input en,
+	input [5:0]seed,
+	input [5:0] deck_read_data,
+	
+	// lets the top level module know that the shuffling has concluded
+	output reg done,
+	
+	
+	//Debug variables to tell me whats happening in here
+	output reg [3:0] SS,
+	
+	output reg enOut, 
+	output reg [5:0] deck_index, 
+	output reg [5:0] deck_write_data 
+);
+
+
+/* these variables will store the current and previous card that are being swapped with the shuffling of the deck */
+reg [5:0]zero_card;
+reg [5:0]temp_card;
+reg [5:0]rand_card;
+
+
+
+reg [3:0]NS;
+reg [3:0]S;

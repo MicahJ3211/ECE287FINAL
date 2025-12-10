@@ -111,14 +111,14 @@ assign HEX1 = seg7_dig1;
 assign HEX2 = seg7_dig2; 
 assign HEX3 = seg7_dig3;
 assign HEX4 = seg7_dig4;
-assign HEX5 = seg7_dig5; 
+assign HEX5 = seg7_dig5;
 
-reg [3:0]card_num0;
-reg [3:0]card_num1;
 
 /* Counters, activators, and other tracking for the game*/ 
-reg shuffDone;
+wire shuffDone;
 reg startShuff;
+wire [4:0] SS;
+wire shuffEn;
 
 reg [4:0] playerP;
 reg [4:0] dealerP;
@@ -126,11 +126,11 @@ reg [4:0] dealerP;
 reg [4:0] playerT;
 reg [4:0] dealerT; 
 
-assign LEDR[4:0] = playerP;
-assign LEDR[9:5] = dealerP;
+assign LEDR[5:0] = deck_write_data;
+//assign LEDR[9:6] = dealerP;
 	
 wire [9:0]input_seed;
-assign input_seed = SW[9:0];
+assign input_seed = SW[5:0];
 wire clk;
 assign clk = CLOCK_50;
 
@@ -140,41 +140,72 @@ assign rst = KEY[3];
 wire startOrHit;
 assign startOrHit = ~KEY[2]; //Note that KEY[2] will act as both the continue button and hit button so we need to be careful.
 wire display_control; 
-assign display_control = ~KEY[0];
+assign display_control =~KEY[0];
 wire stand;
 assign stand = ~KEY[1];
 
 reg[7:0]to_display;
 wire[9:0]output_number;
 
-reg [3:0] card_num;
+//wire [3:0] card_num;
 reg [1:0] card_suit;
+reg [3:0] card_num0;
+reg [3:0] card_num1;
+
+reg [3:0]debug_num0;
+reg [3:0]debug_num1;
 
 reg [4:0]S;
 reg [4:0]NS;
 
 /* Module instantation*/
-reg [5:0]deck_index;
-reg [5:0]deck_write_data;
 wire [5:0] deck_read_data;
-
+/*CARD*/
 seven_segment dig0(card_num0, seg7_dig0);
 seven_segment dig1(card_num1, seg7_dig1);
 seven_segment_suit dig2(card_suit, seg7_dig2);
+/*STATE*/
+seven_segment dig4(debug_num0, seg7_dig4);
+seven_segment dig5(debug_num1, seg7_dig5);
+
+reg [5:0] deck_index;
+reg [5:0] deck_write_data;
+reg wren;
+
+wire [5:0] shuffle_deck_index;
+wire [5:0] shuffle_deck_write_data;
+wire [5:0] shuffle_wren;
+
+reg [5:0] show_card_index;
+
 
 deck memory(deck_index, clk, deck_write_data, wren, deck_read_data); // run through shuffle_deck
-shuffle_deck my_deck(clk, rst, startShuff, input_seed, shuffDone);
-//we will need an lfsr here 
+
+shuffle_deck_v2 my_deck_v2(.clk(clk), 
+							.rst(rst), 
+							.cont(startOrHit),
+							.en(startShuff), 
+							.deck_read_data(deck_read_data),
+							.seed(input_seed), 
+							.done(shuffDone), 
+							.SS(SS),
+							.deck_index(shuffle_deck_index), 
+							.deck_write_data(shuffle_deck_write_data), 
+							.enOut(shuffEn),
+							.wren(shuffle_wren)
+							);
 
 parameter START  = 5'd0,
-			WAIT_START = 5'd1,
+			WAIT_START = 5'd1,	
 			SEED_ENTER = 5'd2,
-			WAIT_SHUFF_DONE = 5'd3,
+			START_SHUFF = 5'd3,
+			WAIT_SHUFF_DONE = 5'd6,
 			
 			START_GAME = 5'd8,
 			WAIT_START_GAME = 5'd9,
 			
 			SHOW_NEXT_CARD = 5'd4,
+			SHOW_NEXT_BUFF = 5'd5,
 			
 			
 			DEAL_STEP = 5'd10,
@@ -221,34 +252,60 @@ parameter START  = 5'd0,
 			
 			SEED_ENTER:
 				if(startOrHit == 1) 
-					NS = WAIT_SHUFF_DONE;
+					NS = START_SHUFF;
 				else 
 					NS = SEED_ENTER;
 			
-			WAIT_SHUFF_DONE:
-				if(startOrHit == 1) // This acts as both the buffer on our slow-as-butt fingers and the check if it is done
+			START_SHUFF:
+				begin
 					NS = WAIT_SHUFF_DONE;
-				else 
-					if(shuffDone == 1)
-						NS  = START_GAME;
-					else
+					wren = shuffle_wren;
+					deck_write_data = shuffle_deck_write_data;
+					deck_index = shuffle_deck_index;
+				end
+			
+			WAIT_SHUFF_DONE:
+				begin
+					if(startOrHit == 1) // This acts as both the buffer on our slow-as-butt fingers and the check if it is done
 						NS = WAIT_SHUFF_DONE;
+					else 
+						if(shuffDone == 1)
+							NS  = START_GAME;
+						else
+							NS = WAIT_SHUFF_DONE;
+				
+					wren = shuffle_wren;
+					deck_write_data = shuffle_deck_write_data;
+					deck_index = shuffle_deck_index;
+				end
 			
 			START_GAME:
-				if(startOrHit == 1) 
-					NS = WAIT_START_GAME;
-				else 
-					NS = START_GAME;
-			
+				begin
+					deck_index = show_card_index;
+					if(startOrHit == 1) 
+						NS = WAIT_START_GAME;
+					else 
+						NS = START_GAME;
+				end
 			WAIT_START_GAME:
-				if(startOrHit == 0) 
-					NS = DEAL_STEP;
-				else 
-					NS = WAIT_START_GAME;
+				begin
+					deck_index = show_card_index;
+					if(startOrHit == 0) 
+						NS = SHOW_NEXT_CARD;
+					else 
+						NS = WAIT_START_GAME;
+				end
 					
-			SHOW_NEXT_CARD: 
+			SHOW_NEXT_CARD:
+				begin
+					deck_index = show_card_index;
 					NS = START_GAME;
-			/*STOP HERE FOR NOW*/
+				end
+			/*
+			SHOW_NEXT_BUFF:
+				NS = START_GAME;*/
+			
+			/*STOP HERE FOR NOW
 			DEAL_STEP:
 				if(startOrHit == 1)
 					NS = WAIT_PHIT;
@@ -313,70 +370,107 @@ parameter START  = 5'd0,
 			WAIT_DSTAND:
 			IS_WIN:
 			IS_FINAL:*/
+			default:
+				begin
+				wren = 1'b0;
+				deck_write_data = 6'b0;
+				deck_index = 6'b0;
+				end
 		endcase
 		
 		always@(posedge clk or negedge rst)
-		case(S)
-			START:
-				begin
-					startShuff <= 0;
-
-					playerP <= 5'b11111;
-					dealerP <= 5'b11111;
-
-					playerT <= 0;
-					dealerT <= 0;
-					
-					deck_index <= 0;
-					deck_write_data <= 0;
-					
-					card_num <= 0;
-					card_suit <= 0;
-
-				end
-			
-			WAIT_SHUFF_DONE:
+		if(rst == 0)
 			begin
+			startShuff <= 0;
+
+			playerP <= 5'b11111;
+			dealerP <= 5'b11111;
+
+			playerT <= 0;
+			dealerT <= 0;
+					
 			end
-			
-			/* WAIT_SHUFF_DONE A GOOD STATE FOR ANIMATION CHECK*/ 
-			//START_GAME:
+		else
+			case(S)
+				START:
+					begin
+						startShuff <= 0;
+
+						playerP <= 5'b11111;
+						dealerP <= 5'b11111;
+
+						playerT <= 0;
+						dealerT <= 0;
+						show_card_index <= 0;
+						
+
+					end
 				
-			WAIT_START_GAME:
+				START_SHUFF:
 				begin
-					card_num <= deck_read_data >> 2;
-					card_suit <= deck_read_data;
+					startShuff <= startShuff + 1;
 				end
-			SHOW_NEXT_CARD:
-				deck_index <= deck_index +1;
 				
-			
-			//DEAL_STEP:
-			/*DEAL_STEP A GOOD STATE FOR ANIMATION CHECK*/ 
-			/*WAIT_PHIT:
-			IS_BUST:
-			IS_ACE:
-			WAIT_ACE_CHOICE:
-			WAIT_PSTAND:
-			DISPLAY_CARD:*/
-			/* DISPLAY_CARD A GOOD STATE FOR ANIMATION CHECK*/ 
-			/*WAIT_CONT:
-			DEALER_GET:*/
-			/* The Dealer ai will look at its total a see if it is 17 or more and if it is over 
-			17 it will stand. Otherwise it will pull a card. This is how it will guess based on bicycle rules.*/
-			/*WAIT_DHIT:
-			IS_BUST:
-			IS_ACE:
-			WAIT_ACE_CHOICE:
-			WAIT_DSTAND:
-			IS_WIN:
-			IS_FINAL:*/
-		endcase
+				WAIT_SHUFF_DONE:
+					begin 
+					end
+				
+				/* WAIT_SHUFF_DONE A GOOD STATE FOR ANIMATION CHECK*/ 
+				START_GAME:
+					begin
+					end
+					
+				WAIT_START_GAME:
+					begin
+					end
+				SHOW_NEXT_CARD:
+					begin
+						show_card_index <= show_card_index + 1;
+					end
+				/*
+				SHOW_NEXT_BUFF:
+					begin
+					end
+				*/
+					
+				
+				//DEAL_STEP:
+				/*DEAL_STEP A GOOD STATE FOR ANIMATION CHECK*/ 
+				/*WAIT_PHIT:
+				IS_BUST:
+				IS_ACE:
+				WAIT_ACE_CHOICE:
+				WAIT_PSTAND:
+				DISPLAY_CARD:*/
+				/* DISPLAY_CARD A GOOD STATE FOR ANIMATION CHECK*/ 
+				/*WAIT_CONT:
+				DEALER_GET:*/
+				/* The Dealer ai will look at its total a see if it is 17 or more and if it is over 
+				17 it will stand. Otherwise it will pull a card. This is how it will guess based on bicycle rules.*/
+				/*WAIT_DHIT:
+				IS_BUST:
+				IS_ACE:
+				WAIT_ACE_CHOICE:
+				WAIT_DSTAND:
+				IS_WIN:
+				IS_FINAL:*/
+			endcase
 		
 		always@(*)
 			begin
-				card_num0 = card_num % 10;
-				card_num1 = card_num / 10;
+				card_num0 = (deck_read_data & 6'b001111) % 10;
+				card_num1 = (deck_read_data & 6'b001111) / 10;
+				card_suit = (deck_read_data & 6'b110000) >> 4;
+				if(display_control == 0)
+					begin
+						debug_num0 = S % 10;
+						debug_num1 = S / 10;
+					end
+				else 
+					begin
+						debug_num0 = SS % 10;
+						debug_num1 = SS / 10;
+					end
 			end
 
 			

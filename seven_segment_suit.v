@@ -17,13 +17,13 @@ module seven_segment_suit(
 	always@(*)
 		case(i)
 			2'b00: // hearts
-				o = 1001000;
+				o = 7'b0001011;
 			2'b01: // clubs
-				o = 0110000;
+				o = 7'b1000110;
 			2'b10: // diamonds
-				o = 1000010;
+				o = 7'b0100001;
 			2'b11: // spades
-				o = 0100100;
+				o = 7'b0010010;
 				
 		endcase
 		

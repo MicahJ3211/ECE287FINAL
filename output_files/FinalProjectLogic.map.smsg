@@ -1,1 +1,2 @@
-Info (10281): Verilog HDL Declaration information at shuffle_deck.v(12): object "done" differs only in case from object "DONE" in the same scope File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck.v Line: 12
+Info (10281): Verilog HDL Declaration information at shuffle_deck_v2.v(29): object "rand_ind" differs only in case from object "RAND_IND" in the same scope File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 29
+Info (10281): Verilog HDL Declaration information at shuffle_deck_v2.v(12): object "done" differs only in case from object "DONE" in the same scope File: M:/ECE287/LABS/Final_Project_Logic/shuffle_deck_v2.v Line: 12
