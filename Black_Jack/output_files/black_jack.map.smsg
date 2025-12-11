@@ -1,0 +1,5 @@
+Info (10281): Verilog HDL Declaration information at asset_controller.v(9): object "start" differs only in case from object "START" in the same scope File: D:/ECE_287/Final_Project/Black_Jack/asset_controller.v Line: 9
+Info (10281): Verilog HDL Declaration information at asset_controller.v(44): object "done" differs only in case from object "DONE" in the same scope File: D:/ECE_287/Final_Project/Black_Jack/asset_controller.v Line: 44
+Warning (10268): Verilog HDL information at vga_driver.v(60): always construct contains both blocking and non-blocking assignments File: D:/ECE_287/Final_Project/Black_Jack/vga_driver.v Line: 60
+Info (10281): Verilog HDL Declaration information at shuffle_deck_v2.v(29): object "rand_ind" differs only in case from object "RAND_IND" in the same scope File: D:/ECE_287/Final_Project/Black_Jack/shuffle_deck_v2.v Line: 29
+Info (10281): Verilog HDL Declaration information at shuffle_deck_v2.v(12): object "done" differs only in case from object "DONE" in the same scope File: D:/ECE_287/Final_Project/Black_Jack/shuffle_deck_v2.v Line: 12

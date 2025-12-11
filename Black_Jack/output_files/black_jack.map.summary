@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Thu Dec 11 13:27:15 2025
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : black_jack
+Top-level Entity Name : black_jack
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 1130
+Total pins : 96
+Total virtual pins : 0
+Total block memory bits : 2,765,424
+Total DSP Blocks : 1
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

@@ -1,0 +1,96 @@
+module shuffle_deck (
+	input clk,
+	input rst,
+	
+	// these inputs control when the FSM starts and what seed the pseudorandom number generater runs under
+	input en,
+	input [5:0]seed,
+	
+	// lets the top level module know that the shuffling has concluded
+	output done
+
+);
+
+
+reg [5:0]previous_card;
+reg [5:0]
+reg [5:0]shuffle_cnt;
+
+reg [3:0]NS;
+reg [3:0]S;
+
+parameter START = 4'd0,
+			 SEED_ENTER = 4'd1,
+			 WAIT_EN = 4'd2,
+			 RANDOMIZE = 4'd3,
+			 FETCH_CARD = 4'd4,
+			 DATA_BUFF = 4'd5,
+			 REPLACE_CARDS = 4'd6,
+			 RESET_VALUES = 4'd7,
+			 DONE = 4'd8;
+			 
+always@(*)
+	begin
+		if (rst == 0)
+			S <= START;
+			
+		else
+			S <= NS;
+	end
+
+always@(*)
+	case(S)
+		
+		START:
+			NS = SEED_ENTER;
+			
+		SEED_ENTER:
+			NS = WAIT_EN;
+				
+		WAIT_EN:
+			begin
+				if (en == 0)
+					NS = WAIT_EN;
+					
+				else
+					NS = RANDOMIZE;
+			end
+					
+		RANDOMIZE:
+			NS = FETCH_CARD;
+			
+		FETCH_CARD:
+			NS = DATA_BUFF;
+			
+		DATA_BUFF:
+			begin
+				if (previous_card == 6'd0)
+					NS = RANDOMIZE;
+					
+				else
+					NS = REPLACE_CARDS;
+			end
+		
+		REPLACE_CARDS:
+			NS = RESET_VALUES;
+			
+		RESET_VALUES:
+			begin
+				if (shuffle_cnt < 6'd52)
+					NS = RANDOMIZE;
+				
+				else
+					NS = DONE;
+			
+		DONE:
+			NS = START;
+	
+	endcase
+		
+		
+		
+		
+		
+		
+		
+		
